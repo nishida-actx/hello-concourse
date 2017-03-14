@@ -1,3 +1,3 @@
 #!/bin/bash
-#echo "Hello World"
-find .
+echo "Hello World"
+#find .
