@@ -1,37 +1,18 @@
 ---
+# Resourceの定義
 resources:
+# Git Resourceの定義
 - name: hello
   type: git
   source:
-    uri: https://github.com/making/hello-concourse.git  
-- name: result
-  type: git
-  source:
-    uri: git@gist.github.com:bd8d06457628f94c7a8abc06925fd052.git
-    private_key: {{github-private-key}}
-    branch: master
+    uri: https://github.com/nishida-actx/hello-concourse.git
 
-jobs: 
-- name: job-hello
-  public: true
+# Jobの定義
+jobs:
+- name: hello-job
+  public: true # UI上でJobの結果をログイン不要で公開するかどうか
   plan:
-  - get: hello	
-    trigger: true
-  - get: result
+  - get: hello
+    trigger: true # Resourceに変更があれば自動でジョブを実行するかどうか
   - task: run-hello
     file: hello/hello.yml
-  - task: commit-log
-    file: hello/commit-log.yml
-  - put: result
-    params:
-      repository: updated-result
-
-- name: job-show-result
-  public: true
-  plan:
-  - get: hello	
-  - get: result
-    trigger: true
-    passed: [ job-hello ]
-  - task: show-result
-    file: hello/show-result.yml

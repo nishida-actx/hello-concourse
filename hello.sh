@@ -1,2 +1,3 @@
 #!/bin/bash
-find . > out/result.log
+#echo "Hello World"
+find .
