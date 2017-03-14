@@ -7,7 +7,7 @@ cd updated-result/
 # 前Task出力結果をGitのcommit用のGit作業ディレクトリに移動する
 mv -f ../out/* ./
 
-# Something Wrong? No?  I got it!
+# Something Wrong? No?  I got it!!
 git config --global user.email "nishida@act-x.co.jp"
 git config --global user.name "nishida-actx"
 
