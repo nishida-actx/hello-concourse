@@ -9,7 +9,7 @@ resources:
 - name: result
   type: git
   source:
-    uri: git@gist.github.com:e0219f636386fa7180b155b5aff82dec.git
+    uri: git@gist.github.com:d85996771a2dc1eaebf46d03c1d75cfb.git
     private_key: {{github-private-key}}
     branch: master 
 # Jobの定義
